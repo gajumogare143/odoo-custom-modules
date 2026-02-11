@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_whatsapp_business_account_tree" model="ir.ui.view">
+        <field name="name">whatsapp.business.account.tree</field>
+        <field name="model">whatsapp.business.account</field>
+        <field name="arch" type="xml">
+            <list string="WhatsApp Business Accounts">
+                <field name="name"/>
+                <field name="phone_number"/>
+                <field name="status" widget="badge" decoration-success="status == 'connected'" decoration-danger="status == 'error'"/>
+                <field name="is_default" widget="boolean_toggle"/>
+                <field name="messages_sent_today"/>
+                <field name="last_message_date"/>
+            </list>
+
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_whatsapp_business_account_form" model="ir.ui.view">
+        <field name="name">whatsapp.business.account.form</field>
+        <field name="model">whatsapp.business.account</field>
+        <field name="arch" type="xml">
+            <form string="WhatsApp Business Account">
+                <header>
+                    <button name="action_test_connection" string="Test Connection" type="object" class="btn-primary"/>
+                   <button name="action_view_messages"
+                            string="Messages"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-comments"
+                            modifiers="{'invisible': [('is_default','=',True)]}"/>
+
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="action_view_messages" icon="fa-comments">
+                            <field string="Messages" name="messages_sent_today" widget="statinfo"/>
+                        </button>
+                    </div>
+                    
+                    <group>
+                        <group name="basic_info">
+                            <field name="name"/>
+                            <field name="phone_number_id"/>
+                            <field name="business_account_id"/>
+                            <field name="is_default"/>
+                            <field name="active"/>
+                        </group>
+                        <group name="api_config">
+                            <field name="access_token" password="True"/>
+                            <field name="webhook_verify_token" password="True"/>
+                            <field name="api_version"/>
+                            <field name="base_url"/>
+                        </group>
+                    </group>
+                    
+                    <group string="Account Information" name="account_info">
+                        <group>
+                            <field name="phone_number" readonly="1"/>
+                            <field name="display_name" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="last_message_date" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_whatsapp_business_account_search" model="ir.ui.view">
+        <field name="name">whatsapp.business.account.search</field>
+        <field name="model">whatsapp.business.account</field>
+        <field name="arch" type="xml">
+            <search string="Search WhatsApp Business Accounts">
+                <field name="name"/>
+                <field name="phone_number"/>
+                <filter string="Connected" name="connected" domain="[('status', '=', 'connected')]"/>
+                <filter string="Default" name="default" domain="[('is_default', '=', True)]"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Status" name="group_status" context="{'group_by': 'status'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_whatsapp_business_account" model="ir.actions.act_window">
+        <field name="name">WhatsApp Business Accounts</field>
+        <field name="res_model">whatsapp.business.account</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first WhatsApp Business Account
+            </p>
+            <p>
+                Configure your Meta WhatsApp Business API credentials to start sending messages.
+            </p>
+        </field>
+    </record>
+</odoo>

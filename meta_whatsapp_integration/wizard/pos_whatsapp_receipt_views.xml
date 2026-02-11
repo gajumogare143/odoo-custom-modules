@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- POS WhatsApp Receipt Wizard Form -->
+    <record id="view_pos_whatsapp_receipt_form" model="ir.ui.view">
+        <field name="name">pos.whatsapp.receipt.form</field>
+        <field name="model">pos.whatsapp.receipt</field>
+        <field name="arch" type="xml">
+            <form string="Send Receipt via WhatsApp">
+                <group>
+                    <group name="order_info">
+                        <field name="business_account_id"/>
+                        <field name="pos_order_id" readonly="1"/>
+                        <field name="partner_id" readonly="1"/>
+                        <field name="to_number"/>
+                        <field name="message_type" widget="radio"/>
+                    </group>
+                </group>
+                
+               <group modifiers="{'invisible': [('show_text_field', '=', False)]}">
+                        <field name="custom_message" placeholder="Add a personal message (optional)"/>
+                        <separator string="Receipt Preview"/>
+                        <field name="receipt_text" readonly="1"/>
+                    </group>
+
+                    <group modifiers="{'invisible': [('show_template_field', '=', False)]}">
+                        <field name="template_id" domain="[('status', '=', 'APPROVED')]"/>
+                </group>
+
+
+                <footer>
+                    <button string="Send Receipt" name="action_send_receipt" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,44 @@
+.o_whatsapp_button {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.o_whatsapp_button:hover {
+    background-color: #128C7E;
+    color: white;
+}
+
+.o_whatsapp_icon {
+    color: #25D366;
+}
+
+.o_whatsapp_status_connected {
+    color: #25D366;
+}
+
+.o_whatsapp_status_disconnected {
+    color: #dc3545;
+}
+
+.o_whatsapp_message_preview {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+
+.o_whatsapp_template_parameter {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 3px;
+    padding: 2px 6px;
+    margin: 0 2px;
+    font-weight: bold;
+}

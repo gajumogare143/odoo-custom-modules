@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit Partner Form View -->
+    <record id="view_partner_form_whatsapp" model="ir.ui.view">
+        <field name="name">res.partner.form.whatsapp</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button class="oe_stat_button" type="object" name="action_view_whatsapp_messages" icon="fa-whatsapp" modifiers="{'invisible': [('whatsapp_number', '=', False)]}">
+                    <field string="WhatsApp" name="whatsapp_message_count" widget="statinfo"/>
+                </button>
+                <button class="oe_stat_button" type="object" name="action_send_whatsapp_message" icon="fa-paper-plane" modifiers="{'invisible': ['|', ('whatsapp_number', '=', False), ('whatsapp_opt_in', '=', False)]}">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Send</span>
+                        <span class="o_stat_text">WhatsApp</span>
+                    </div>
+                </button>
+            </xpath>
+            
+            <xpath expr="//field[@name='mobile']" position="after">
+                <field name="whatsapp_number" widget="phone"/>
+                <field name="whatsapp_opt_in"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Partner Tree View -->
+    <record id="view_partner_tree_whatsapp" model="ir.ui.view">
+        <field name="name">res.partner.tree.whatsapp</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='phone']" position="after">
+                <field name="whatsapp_number" optional="hide"/>
+                <field name="whatsapp_opt_in" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

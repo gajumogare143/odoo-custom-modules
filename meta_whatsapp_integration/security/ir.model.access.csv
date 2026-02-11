@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_whatsapp_business_account_user,whatsapp.business.account.user,model_whatsapp_business_account,base.group_user,1,1,1,1
+access_whatsapp_message_user,whatsapp.message.user,model_whatsapp_message,base.group_user,1,1,1,1
+access_whatsapp_template_user,whatsapp.template.user,model_whatsapp_template,base.group_user,1,1,1,1
+access_send_whatsapp_message_user,send.whatsapp.message.user,model_send_whatsapp_message,base.group_user,1,1,1,1
+access_pos_whatsapp_receipt_user,pos.whatsapp.receipt.user,model_pos_whatsapp_receipt,base.group_user,1,1,1,1

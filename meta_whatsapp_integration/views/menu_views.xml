@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu -->
+    <menuitem id="menu_whatsapp_main" 
+              name="WhatsApp" 
+              sequence="100"
+              web_icon="meta_whatsapp_integration,static/description/icon.png"/>
+    
+    <!-- Configuration Menu -->
+    <menuitem id="menu_whatsapp_config" 
+              name="Configuration" 
+              parent="menu_whatsapp_main" 
+              sequence="10"/>
+    
+    <menuitem id="menu_whatsapp_business_accounts" 
+              name="Business Accounts" 
+              parent="menu_whatsapp_config" 
+              action="action_whatsapp_business_account" 
+              sequence="10"/>
+    
+    <menuitem id="menu_whatsapp_templates" 
+              name="Message Templates" 
+              parent="menu_whatsapp_config" 
+              action="action_whatsapp_template" 
+              sequence="20"/>
+    
+    <!-- Messages Menu -->
+    <menuitem id="menu_whatsapp_messages" 
+              name="Messages" 
+              parent="menu_whatsapp_main" 
+              action="action_whatsapp_message" 
+              sequence="20"/>
+    
+    <!-- Send Message Menu -->
+     <record id="action_send_whatsapp_message_menu" model="ir.actions.act_window">
+        <field name="name">Send WhatsApp Message</field>
+        <field name="res_model">whatsapp.message</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    
+    <menuitem id="menu_send_whatsapp_message" 
+              name="Send Message" 
+              parent="menu_whatsapp_main" 
+              action="action_send_whatsapp_message_menu" 
+              sequence="30"/>
+</odoo>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Default Receipt Template -->
+        <record id="template_pos_receipt" model="whatsapp.template">
+            <field name="name">pos_receipt</field>
+            <field name="category">UTILITY</field>
+            <field name="language">en</field>
+            <field name="header_type">TEXT</field>
+            <field name="header_text">Receipt from {{1}}</field>
+            <field name="body_text">Thank you for your purchase!
+
+Order: {{2}}
+Date: {{3}}
+Total: {{4}}
+
+We appreciate your business!</field>
+            <field name="footer_text">Have a great day!</field>
+            <field name="status">PENDING</field>
+        </record>
+
+        <!-- Welcome Message Template -->
+        <record id="template_welcome" model="whatsapp.template">
+            <field name="name">welcome_message</field>
+            <field name="category">UTILITY</field>
+            <field name="language">en</field>
+            <field name="body_text">Hello {{1}}! Welcome to our store. We're excited to serve you!</field>
+            <field name="status">PENDING</field>
+        </record>
+
+        <!-- Order Confirmation Template -->
+        <record id="template_order_confirmation" model="whatsapp.template">
+            <field name="name">order_confirmation</field>
+            <field name="category">UTILITY</field>
+            <field name="language">en</field>
+            <field name="header_type">TEXT</field>
+            <field name="header_text">Order Confirmed</field>
+            <field name="body_text">Hi {{1}}, your order {{2}} has been confirmed for ₹{{3}}. Thank you for choosing us!</field>
+            <field name="status">PENDING</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_pos_order_form_inherit_whatsapp" model="ir.ui.view">
+        <field name="name">pos.order.form.whatsapp.button</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+
+            <!-- safer location: add after the 'Send' or 'Print' buttons block -->
+            <xpath expr="//header" position="inside">
+                <button name="action_send_whatsapp_receipt"
+                        type="object"
+                        string="Send via WhatsApp"
+                        icon="fa-whatsapp"
+                        class="btn btn-success"
+                        help="Send this receipt to the customer via WhatsApp"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
