@@ -62,7 +62,7 @@ class ResPartner(models.Model):
             'type': 'ir.actions.act_window',
             'name': _('WhatsApp Messages'),
             'res_model': 'whatsapp.message',
-            'view_mode': 'tree,form',
+            'view_mode': 'list,form',
             'domain': [
                 '|', ('to_number', '=', self.whatsapp_number),
                      ('from_number', '=', self.whatsapp_number)
@@ -84,4 +84,5 @@ class ResPartner(models.Model):
                 local_number = clean_number[2:]
                 partner = self.search([('whatsapp_number', 'ilike', local_number)], limit=1)
         
+
         return partner
