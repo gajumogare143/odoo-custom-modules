@@ -36,6 +36,8 @@
         'wizard/send_whatsapp_message_views.xml',
         'wizard/pos_whatsapp_receipt_views.xml',
         'views/pos_order_views.xml',
+        'views/sales_order_views.xml',
+        'views/purchase_order_views.xml',
     ],
     'assets': {
         'web.assets_backend': [
