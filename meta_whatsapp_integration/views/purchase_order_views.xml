@@ -1,0 +1,4 @@
+<button name="action_send_whatsapp_po"
+        type="object"
+        string="Send WhatsApp"
+        class="btn-primary"/>
