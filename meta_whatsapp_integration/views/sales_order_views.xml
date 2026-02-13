@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5aa7546 (Updated POS WhatsApp receipt logic)
     <record id="view_sale_order_form_whatsapp" model="ir.ui.view">
         <field name="name">sale.order.form.whatsapp</field>
         <field name="model">sale.order</field>
@@ -14,5 +17,9 @@
             </xpath>
         </field>
     </record>
+<<<<<<< HEAD
 
 </odoo>
+=======
+</odoo>
+>>>>>>> 5aa7546 (Updated POS WhatsApp receipt logic)

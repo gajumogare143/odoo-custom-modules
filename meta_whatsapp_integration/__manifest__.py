@@ -46,6 +46,8 @@
         ],
         'point_of_sale.assets': [
             'meta_whatsapp_integration/static/src/js/pos_whatsapp.js',
+            'meta_whatsapp_integration/static/src/js/pos_whatsapp_payment.js',
+            'meta_whatsapp_integration/static/src/xml/pos_whatsapp_payment.xml',
         ],
     },
     'installable': True,
